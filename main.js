@@ -8,6 +8,7 @@ class Transaction {
     }
 }
 
+
 class Block {
 
     constructor(timestamp, transactions, previousHash = '') {
