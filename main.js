@@ -87,12 +87,12 @@ class BlockChain {
             const currentBlock = this.chain[i]
             const previousBlock = this.chain[i - 1]
 
-            // El hash del bloque no es válido
+            
             if (currentBlock.hash != currentBlock.calculateHash()) {
                 return false
             }
 
-            // Comprobamos si apunta al anterior
+           
             if (currentBlock.previousHash !== previousBlock.hash) {
                 return false
             }
@@ -102,34 +102,21 @@ class BlockChain {
 
 }
 
-let marioCoin = new BlockChain()
+let minaCoin = new BlockChain()
 
-marioCoin.createTransaction(new Transaction('address1', 'address2', 100))
-marioCoin.createTransaction(new Transaction('address2', 'address1', 50))
-
-console.log('\nComienza el minado')
-marioCoin.minePendingTransactions('mario-address')
-
-console.log('Balance of Mario is ', marioCoin.getBalanceOfAddress('mario-address'))
+minaCoin.createTransaction(new Transaction('address1', 'address2', 100))
+minaCoin.createTransaction(new Transaction('address2', 'address1', 50))
 
 console.log('\nComienza el minado')
-marioCoin.minePendingTransactions('mario-address')
+minaCoin.minePendingTransactions('mina-address')
 
-console.log('Balance of Mario is ', marioCoin.getBalanceOfAddress('mario-address'))
+console.log('Balance of mina is ', minaCoin.getBalanceOfAddress('mina-address'))
+
+console.log('\nComienza el minado')
+minaCoin.minePendingTransactions('mina-address')
+
+console.log('Balance of mina is ', minaCoin.getBalanceOfAddress('mina-address'))
 
 
-// console.log('Minando Bloque 1...')
-// marioCoin.addBlock(new Block(1, "10/09/2018", { amount: 4 }))
-
-// console.log('Minando Bloque 2...')
-// marioCoin.addBlock(new Block(2, "12/09/2018", { amount: 20 }))
-
-// console.log(marioCoin.isChainValid())
-
-// marioCoin.chain[1].data = { amount: 100 }
-// marioCoin.chain[1].hash = marioCoin.chain[1].calculateHash()
-
-// console.log(marioCoin.isChainValid())
-
-console.log(JSON.stringify(marioCoin, null, 4))
+console.log(JSON.stringify(minaCoin, null, 4))
 
